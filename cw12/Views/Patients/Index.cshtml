@@ -1,10 +1,25 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model IEnumerable<cw12.Models.Patiens>
 
-<h1>Lista pacjentow</h1>
-<p>
-    Lorem ipsum...
-</p>
+<h1>Lista pacjentów</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data Urodzenia</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.IdPatient</td>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.BirthDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
