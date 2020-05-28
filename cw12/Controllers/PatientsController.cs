@@ -20,5 +20,24 @@ namespace cw12.Controllers
         {
             return "Jan Kowalski";
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Patiens patient)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(patient);
+            }
+            var db = new s18446Context();
+            db.Patiens.Add(patient);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
